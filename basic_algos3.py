@@ -40,6 +40,17 @@ def recur_fib(n):
     else:
         return recur_fib(n-1) + recur_fib(n-2)
 
+def prime_sieve(n):
+    primes = [True]*(n+1)
+    p=2
+    while p*p<=n:
+        if primes[p]:
+            for j in range(p*2,n+1,p):
+                primes[j] = False
+        p+=1
+
+    return [p for p in range(n+1) if primes[p]]
+
 def merge_sort2(arr):
     if len(arr)>1:
         mid = len(arr)//2
@@ -106,6 +117,46 @@ def quick_sort(arr, low, high):
         pi = part(arr, low, high)
         quick_sort(arr, low, pi-1)
         quick_sort(arr, pi+1, high)
+
+def beta(X,y):
+    import numpy as np
+    return np.linalg.inv(X.T.dot(X)).dot(X.T).dot(y)
+
+def nonrecur_factorial(n):
+    r=n
+    for i in range(1,n-1):
+        r*=(n-i)
+    return r
+
+def combinations(n,k):
+    '''
+    nCr = n!/((n-k)!*(k!))
+        = (n*(n-1)*(n-2) *...*(n-k+1))/ (k(k-1)(k-2)*...*(1))
+    :param n:
+    :param k:
+    :return:
+    '''
+
+    r = 1
+    for i in range(k):
+        r*= (n-i)
+        r= r/(i+1)
+    return r
+
+def permutation(n,k):
+    '''
+    nPr = n!/k!
+        = n(n-1)(n-2)*...*(n-k+1)
+    :param n:
+    :param k:
+    :return:
+    '''
+    r = 1
+    for i in range(k):
+        r*= (n-i)
+    return r
+
+
 
 print('merge sort')
 print(merge_sort([6,4,2,1,7,4,3]))
