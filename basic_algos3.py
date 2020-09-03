@@ -26,11 +26,7 @@ def merge_sort(arr):
             k+=1
         return arr
 
-def non_recur_fib(n):
-    d=[1,1]
-    while len(d)< n:
-        d.append(d[-1]+d[-2])
-    return d
+
 
 def recur_fib(n):
     if n ==1:
@@ -51,6 +47,11 @@ def prime_sieve(n):
 
     return [p for p in range(n+1) if primes[p]]
 
+def non_recur_fib(n):
+    d=[1,1]
+    while len(d)< n:
+        d.append(d[-1]+d[-2])
+    return d
 def merge_sort2(arr):
     if len(arr)>1:
         mid = len(arr)//2
@@ -156,6 +157,22 @@ def permutation(n,k):
         r*= (n-i)
     return r
 
+
+
+def part2(arr, low, high):
+    i = low-1
+    pivot = arr[high]
+    for j in range(low, high):
+        if arr[j] <= pivot:
+            i+=1
+            arr[j], arr[i] = arr[i], arr[j]
+    arr[i+1], arr[high] = arr[high], arr[i+1]
+    return i +1
+def quicksort2(arr,low,high):
+    if low < high:
+        pi = part2(arr,low,high)
+        quicksort2(arr, low, pi-1)
+        quicksort2(arr, pi+1, high)
 
 
 print('merge sort')

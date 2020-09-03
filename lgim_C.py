@@ -36,8 +36,8 @@ fig = plt.figure(figsize=(6,6))
 
 ax = Axes3D(fig)
 
-ax.scatter(df['a'], df['b'], df['c'], c=df['valid'], marker='X', s=0.5)
+ax.scatter(df['a'], df['b'], df['c'], marker='X', s=0.5)
 ax.set_xlabel('A Label')
 ax.set_ylabel('B Label')
 ax.set_zlabel('C Label')
-# plt.show()
+plt.show()
