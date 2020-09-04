@@ -206,7 +206,7 @@
 26. ### What is bound method?
 	a method that depends on the instance as the first argument.
 
-27. Garbage collecter and reference count in Python?
+27. ### Garbage collecter and reference count in Python?
 
 
 
