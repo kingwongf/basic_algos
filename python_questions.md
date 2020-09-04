@@ -1,7 +1,7 @@
 Python Interview questions
 
 1. What's a decorator? 
-	a. a synthetic sugar that accepts a function w/o medifiying its behaviour 
+	a synthetic sugar that accepts a function w/o medifiying its behaviour 
 
 2. What're @property, getters, setters and deletar?
 	@<method>.getter: methods helps to access the private attributes from a class
