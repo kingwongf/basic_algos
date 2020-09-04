@@ -90,7 +90,9 @@ Python Interview questions
 	To recap, functions have a `__get__()` method so that they can be converted to a method when accessed as attributes. The non-data descriptor transforms an `obj.f(*args)` call into `f(obj, *args)`. Calling `klass.f(*args)` becomes `f(*args)`.
 
 	static method returns the same/ underlying function
-	class method has a class, not instance as the first argument, so sth with it
+	class method has a class, not instance as the first argument, result same as `type(self).__<some method>__`. But the @classmethod calls on the class object alone, not self, the instance. Review this,
+	[When should I use @classmethod and when def method(self)?](https://stackoverflow.com/questions/10586787/when-should-i-use-classmethod-and-when-def-methodself)
+
 
 
 6. ## What's a staticmethod?
@@ -112,8 +114,7 @@ Python Interview questions
 	```
 
 
-
-7. ### What's a abstract base class?
+7. ### What's an abstract base class?
 
 8. ### What's a classmethod?
 
