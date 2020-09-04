@@ -98,7 +98,7 @@
 6. ## What's a staticmethod?
 	A function within a class that is a pure function, accepts only arguments, not the its class instance at the first term. e.g.
 	```
-		class a(object):
+	class a(object):
 	    def __init__(self,var):
 	        self.var = var
 	    @staticmethod
@@ -120,23 +120,23 @@
 	```
 	import abc
 
-		class PluginBase(object):
-		    __metaclass__ = abc.ABCMeta
-		    
-		    @abc.abstractmethod
-		    def load(self, input):
-		        """Retrieve data from the input source and return an object."""
-		        return
-		           
-		    @abc.abstractmethod
-		    def save(self, output, data):
-		        """Save the data object to the output."""
-		        return
+	class PluginBase(object):
+	    __metaclass__ = abc.ABCMeta
+
+	    @abc.abstractmethod
+	    def load(self, input):
+		"""Retrieve data from the input source and return an object."""
+		return
+
+	    @abc.abstractmethod
+	    def save(self, output, data):
+		"""Save the data object to the output."""
+		return
 	```
 
 	Later we can import this base.py and define the actual methods through subclassing
 	```
-		import abc
+	import abc
 	from abc_base import PluginBase
 
 	class SubclassImplementation(PluginBase):
