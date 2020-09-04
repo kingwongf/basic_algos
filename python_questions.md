@@ -1,4 +1,4 @@
-Python Interview questions
+# Python Interview questions
 
 1. ## What's a decorator? 
 	a synthetic sugar that accepts a function w/o medifiying its behaviour 
@@ -115,6 +115,42 @@ Python Interview questions
 
 
 7. ### What's an abstract base class?
+	Review this [ABC](https://pymotw.com/2/abc/#:~:text=Abstract%20base%20classes%20are%20a,for%20a%20set%20of%20subclasses.)
+	An abstract base class is a blueprint for other subclasses you later going to write. e.g.
+	```
+	import abc
+
+		class PluginBase(object):
+		    __metaclass__ = abc.ABCMeta
+		    
+		    @abc.abstractmethod
+		    def load(self, input):
+		        """Retrieve data from the input source and return an object."""
+		        return
+		           
+		    @abc.abstractmethod
+		    def save(self, output, data):
+		        """Save the data object to the output."""
+		        return
+	```
+
+	Later we can import this base.py and define the actual methods through subclassing
+	```
+		import abc
+	from abc_base import PluginBase
+
+	class SubclassImplementation(PluginBase):
+	    
+	    def load(self, input):
+	        return input.read()
+	    
+	    def save(self, output, data):
+	        return output.write(data)
+	if __name__ == '__main__':
+	    print 'Subclass:', issubclass(SubclassImplementation, PluginBase)
+	    print 'Instance:', isinstance(SubclassImplementation(), PluginBase)
+	```
+
 
 8. ### What's a classmethod?
 
@@ -169,5 +205,9 @@ Python Interview questions
 
 26. ### What is bound method?
 	a method that depends on the instance as the first argument.
+
+27. Garbage collecter and reference count in Python?
+
+
 
 
