@@ -114,7 +114,7 @@
 	```
 
 
-7. ### What's an abstract base class?
+7. ## What's an abstract base class?
 	Review this [ABC](https://pymotw.com/2/abc/#:~:text=Abstract%20base%20classes%20are%20a,for%20a%20set%20of%20subclasses.)
 	An abstract base class is a blueprint for other subclasses you later going to write. e.g.
 	```
@@ -151,14 +151,123 @@
 	    print 'Instance:', isinstance(SubclassImplementation(), PluginBase)
 	```
 
+	Useful abc in standard library,
+	The collections module defines several abstract base classes related to container (and containable) types.
 
-8. ### What's a classmethod?
+	General container classes:
+		- Container
+		- Sized
 
-9. ### What's polymorphism?
+	Iterator and Sequence classes:
+		- Iterable
+		- Iterator
+		- Sequence
+		- MutableSequence
 
-10. ### Why not put mutable in args?
+	Unique values:
+		- Hashable
+		- Set
+		- MutableSet
 
-11. ### What are args and kwargs?
+	Mappings:
+		- Mapping
+		- MutableMapping
+		- MappingView
+		- KeysView
+		- ItemsView
+		- ValuesView
+
+	Miscelaneous:
+		- Callable
+
+
+8. ## What's a classmethod?
+	@classmethod takes the class (not the instance) as the first argument.
+
+
+9. ## What're polymorphism and method overriding?
+	Polymorphism means the ability to take different form.
+	e.g. len() is a polymorphic function as it takes, list, string, dict
+	Method overriding is when the subclasses methods overriding the parent class's methods, while retaining methods that are not mentioned in the subclasses.
+	```
+	from math import pi
+	class Shape:
+	    def __init__(self, name):
+	        self.name = name
+
+	    def area(self):
+	        pass
+
+	    def fact(self):
+	        return "I am a two-dimensional shape."
+
+	    def __str__(self):
+	        return self.name
+
+
+	class Square(Shape):
+	    def __init__(self, length):
+	        super().__init__("Square")
+	        self.length = length
+
+	    def area(self):
+	        return self.length**2
+
+	    def fact(self):
+	        return "Squares have each angle equal to 90 degrees."
+
+
+	class Circle(Shape):
+	    def __init__(self, radius):
+	        super().__init__("Circle")
+	        self.radius = radius
+
+	    def area(self):
+	        return pi*self.radius**2
+	```
+
+	This outputs the following,
+	```
+	Circle
+	I am a two-dimensional shape.
+	Squares have each angle equal to 90 degrees.
+	153.93804002589985
+	```
+
+	`area()` has been overrided but `__str__` is retained from parent. Remember to inherit parent class's attributes,
+	
+	```
+	super().__init__("Square")
+	```
+
+
+10. ## Why not put mutable in args?
+	Because it will be kept as the same reference.
+	```
+	def sth_f(a, b=[]):
+	    b.append(a)
+	    return b
+	def sth_g(a):
+	    b = []
+	    b.append(a)
+	    return b
+	print(sth_f(5))
+	print(sth_f(6))
+	print(sth_g(5))
+	print(sth_g(6))
+	```
+
+	Gives
+	```
+	[5]
+	[5, 6]
+	[5]
+	[6]
+	```
+
+
+11. ### What are `*args` and `**kwargs`?
+
 
 12. ### What's lambda?
 	inline function
@@ -207,6 +316,9 @@
 	a method that depends on the instance as the first argument.
 
 27. ### Garbage collecter and reference count in Python?
+
+28. ## What does `(False, 0, [])` give?
+	 a tuple of Falses is True.
 
 
 
