@@ -294,7 +294,7 @@
                 try:
 		    func(*args, **kwargs)
 		except as e:
-		    sys.stdout = e
+	            sys.stdout = e
 	    return inner_func
 	```
 
