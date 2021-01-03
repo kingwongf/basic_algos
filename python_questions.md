@@ -4,9 +4,9 @@
 	a synthetic sugar that accepts a function w/o medifiying its behaviour 
 
 2. ## What're @property, getters, setters and deletar?
-	@<method>.getter: methods helps to access the private attributes from a class
-	@<method>.setter: methods helps to set the value to private
-	@property: e.g. self.__a = a in __init__, private variable or property, tunring the function into a "getter" method
+	- @getter: methods helps to access the private attributes from a class
+	- @setter: methods helps to set the value to private
+	- @property: e.g. self.__a = a in __init__, private variable or property, tunring the function into a "getter" method
 			  basically __init__ initialise the attributes or properties of a class
 	instead of using 
 	```
