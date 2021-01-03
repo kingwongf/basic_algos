@@ -267,15 +267,18 @@
 
 
 11. ### What are `*args` and `**kwargs`?
+	non-keyword and kewyword argumnets. e.g. iterable and a dict.
 
 
 12. ### What's lambda?
 	inline function
 
 13. ### What're properties, attributes and methods?
+	properties are any function that is `get`, `set` or `fdel`.
+	class attributes are share across instance while instance attributes are instance specific.
 
-14. ### What's dir? returns all properties and methods of the object?
-
+14. ### What's dir? 
+	returns the local namespace of obj, when dir(obj)
 15. ### What's name mangling? 
 	if you set `self.__c__`, it will change to `self._<class_name>.__c`, even if you reference sth to `self._<class_name>.__c` before, it will change to that variable assigned
 
@@ -285,15 +288,32 @@
 17. ### When to use multithreading and multiprocessing?
 
 18. ### Write a a decorator that catches exception to stdout
+	```
+	def exception_exec(func):
+	    def inner_func(*args, **kwargs)
+                try:
+		    func(*args, **kwargs)
+		except as e:
+		    sys.stdout = e
+	    return inner_func
+	```
+
 
 19. ### How many classes I need to price a swap, a bond, a future? 
 	With polymorphism and inheritance, you can first create a parent class with fixed and floating legs methods, the child classes that inherit the methods to price different products. 
 
 20. ### Write a map() function without increasing memory complexity.
-
+	```
+	def usr_map(fun, iterables): 
+	    return [func(x) for x in iterables]
+	```
+	   
+	
 21. ### What's GIL and how it affects the code?
+    GIL, global interpretor lock allows single thread exceution one at a time.
 
 22. ### How GIL transform the code to machine language?
+    Python virture machines translates the source code (.py) into byte code (.pyc), which is an intermediate for CPython (virtual machine) to interpret. The CPython sits within the GIL, intepreting the bytecode. 
 
 23. ### Difference between methods and functions?
 	methods' first argument is the obj instance e.g. self where function is defined as def/ lambda
@@ -319,7 +339,8 @@
 
 28. ## What does `(False, 0, [])` give?
 	 a tuple of Falses is True.
-
+29. List comprehension with if and else?
+    `[f(x) if condition(x) else g(x) for x in sequence]`
 
 
 
